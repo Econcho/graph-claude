@@ -245,7 +245,7 @@ flowchart TD
   ServerCall --> Result["ToolResult"]
 ```
 
-当前支持 stdio MCP transport，默认配置了 time/fetch，GitHub MCP 预留 Docker 配置。MCP tool 统一命名为 `mcp__{server}__{tool}`，缺少 readOnlyHint 时默认按 destructive 工具处理。
+MCP tool 统一命名为 `mcp__{server}__{tool}`，缺少 readOnlyHint 时默认按 destructive 工具处理。
 
 ## 多 Agent 系统
 
@@ -287,7 +287,7 @@ flowchart TD
   Multi["Multi-Agent"] -.agent_delegated.-> Observer
 ```
 
-默认 observe profile 为 `core`，输出面试展示用核心链路：
+默认 observe profile 为 `core`，输出核心链路：
 
 ```text
 .runs/run_xxx/
@@ -296,7 +296,7 @@ flowchart TD
   trace_summary.md
 ```
 
-`trace_summary.md` 是最适合面试现场展示的入口，能快速看到任务、核心时间线、工具调用、权限决策、上下文/记忆和扩展系统使用情况。
+`trace_summary.md` 能快速看到任务、核心时间线、工具调用、权限决策、上下文/记忆和扩展系统使用情况。
 
 ## 快速开始
 
