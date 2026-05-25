@@ -32,6 +32,7 @@ cc-langgraph/
       permissions.py            # deny > ask > allow 权限规则
       registry.py               # ToolRegistry
       file_tools/               # read_file / write_file
+      tool_list.md              # tools 说明
     prompt/
       runtime.py                # PromptRuntime 主入口
       defaults.py               # default prompt sections
@@ -49,8 +50,7 @@ cc-langgraph/
     multi_agent/                # subagent / coordinator / teammate runtime
     observe/                    # trace.jsonl / trace.mmd / trace_summary.md
     runtime/
-      runner.py                 # AgentRunner：run 生命周期和 observe 输出
-  docs/                         # 各子系统详细说明
+      runner.py                 # AgentRunner：run 生命周期和 observe 输出 
   examples/
     demo_project/               # demo workspace
   tests/                        # 单元测试和集成测试
