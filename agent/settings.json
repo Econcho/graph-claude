@@ -1,0 +1,151 @@
+{
+  "permissions": {
+    "allow": [
+      "read_file", 
+      "read_many_files",
+      "list_dir",
+      "glob",
+      "grep",
+      "git_status",
+      "git_diff",
+      "git_log",
+      "git_show",
+      "parse_test_output",
+      "outline_file",
+      "find_definition",
+      "find_references",
+      "write_file",
+      "mcp__github__get_file_contents",
+      "mcp__github__search_repositories",
+      "mcp__time__get_current_time",
+      "mcp__time__convert_time",
+      "mcp__fetch__fetch"
+    ],
+    "ask": [
+      "edit_file",
+      "run_command",
+      "run_tests",
+      "collect_diagnostics",
+      "mkdir",
+      "move_file",
+      "delete_file",
+      "mcp__github__*"
+    ],
+    "deny": [
+      "read_file(.env)",
+      "read_file(.env.*)",
+      "read_many_files(.env)",
+      "read_many_files(.env.*)",
+      "write_file(.env)",
+      "write_file(.env.*)",
+      "write_file(secrets/**)",
+      "edit_file(.env)",
+      "edit_file(.env.*)",
+      "edit_file(secrets/**)",
+      "delete_file(.env)",
+      "delete_file(.env.*)",
+      "delete_file(secrets/**)",
+      "move_file(.env)",
+      "move_file(.env.*)",
+      "move_file(secrets/**)",
+      "write_file(.git/**)",
+      "edit_file(.git/**)",
+      "delete_file(.git/**)",
+      "move_file(.git/**)"
+    ]
+  },
+  "skills": {
+    "enabled": true,
+    "scan_claude_compat_dirs": true,
+    "max_candidates_per_source": 300,
+    "max_loaded_per_source": 200,
+    "max_prompt_skills": 150,
+    "prompt_budget_chars": 30000,
+    "max_skill_bytes": 262144,
+    "max_recursion_depth": 3,
+    "prompt_shell_enabled": true
+  },
+  "prompt": {
+    "enabled": true,
+    "dump_enabled": true,
+    "include_claude_md": true,
+    "include_current_date": true,
+    "include_git_status": true,
+    "section_token_analysis": true,
+    "max_claude_md_chars": 20000,
+    "max_git_status_chars": 4000
+  },
+  "mcp": {
+    "enabled": true,
+    "description_max_chars": 2048,
+    "request_timeout_seconds": 30,
+    "auth_cache_ttl_seconds": 900,
+    "local_connection_batch_size": 3,
+    "remote_connection_batch_size": 20,
+    "ide_allowed_tools": [
+      "mcp__ide__getDiagnostics",
+      "mcp__ide__getOpenEditorFiles"
+    ],
+    "servers": {
+      "time": {
+        "enabled": true,
+        "type": "stdio",
+        "command": "uvx",
+        "args": [
+          "mcp-server-time"
+        ],
+        "env": {}
+      },
+      "fetch": {
+        "enabled": true,
+        "type": "stdio",
+        "command": "uvx",
+        "args": [
+          "mcp-server-fetch"
+        ],
+        "env": {}
+      },
+      "github": {
+        "enabled": false,
+        "type": "stdio",
+        "command": "docker",
+        "args": [
+          "run",
+          "-i",
+          "--rm",
+          "-e",
+          "GITHUB_PERSONAL_ACCESS_TOKEN",
+          "-e",
+          "GITHUB_TOOLSETS",
+          "ghcr.io/github/github-mcp-server"
+        ],
+        "env": {
+          "GITHUB_PERSONAL_ACCESS_TOKEN": "$GITHUB_PERSONAL_ACCESS_TOKEN",
+          "GITHUB_TOOLSETS": "repos,issues,pull_requests,users"
+        }
+      }
+    }
+  },
+  "multi_agent": {
+    "enabled": true,
+    "coordinator_enabled": false,
+    "max_background_agents": 4,
+    "max_subagent_depth": 2,
+    "default_subagent_tools": [
+      "read_file",
+      "write_file",
+      "agent_poll"
+    ],
+    "default_teammate_tools": [
+      "read_file",
+      "write_file",
+      "send_message",
+      "task_create",
+      "task_list",
+      "task_update",
+      "task_stop"
+    ],
+    "notifications_enabled": true,
+    "mailbox_poll_enabled": true
+  }
+}

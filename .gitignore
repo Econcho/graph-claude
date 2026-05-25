@@ -1,0 +1,56 @@
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.coverage
+coverage.xml
+htmlcov/
+
+# Virtual environments / dependency caches
+.venv/
+venv/
+env/
+.env
+.env.*
+.env.example
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# uv
+# Keep uv.lock tracked for reproducible installs.
+
+# Runtime traces and generated agent state
+.runs/
+**/.agent/session_memory/
+**/.agent/auto_memory/
+**/.agent/teams/
+**/.agent/mcp_auth_cache/
+
+# Generated demo outputs
+examples/**/SUMMARY.md
+
+# Local docs and interview notes
+docs/
+
+# Logs / temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
