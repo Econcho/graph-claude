@@ -15,7 +15,7 @@
 ## 目录结构
 
 ```text
-cc-langgraph/
+graph-claude/
   agent/
     main.py                     # CLI 入口
     config.py                   # OpenAI-compatible ChatOpenAI 配置
