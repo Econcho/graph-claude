@@ -10,7 +10,7 @@
 - **分层上下文压缩**：通过 `microcompact -> session compact -> full compact` 逐级压缩 LLM 输入，同时保留完整 transcript 供 debug 和 memory 使用。
 - **记忆系统**：Session Memory 支撑当前会话摘要和 session compact，Auto Memory 支撑跨 run 的长期偏好、反馈和非显然知识召回。
 - **Skill / MCP / Multi-Agent 扩展**：Skill、MCP server tools、多 agent 协作工具都适配为统一 Tool，进入相同权限、执行、结果回流链路。
-- **Runtime Observe**：默认 `core` profile 输出面试展示用核心事件流，生成 `trace.jsonl`、`trace.mmd`、`trace_summary.md`。
+- **Runtime Observe**：默认 `core` profile 输出核心事件流，生成 `trace.jsonl`、`trace.mmd`、`trace_summary.md`。
 
 ## 目录结构
 
